@@ -3142,7 +3142,7 @@ div.thumb a .img-container {
 } */
 
 .img-container img {
-    background: url(https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/gamebox/img/default.jpg) no-repeat;
+    background: url(https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/gamebox/img/default.jpg) no-repeat;
     background-size: cover
 }
 
