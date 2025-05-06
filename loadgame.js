@@ -57,7 +57,7 @@ let retryCount = 0;
 function logPerformance(action) {
     const duration = performance.now() - loadStartTime;
     console.log(`Performance: ${action} took ${duration}ms`);
-    
+
     // 发送性能数据到分析服务
     if (typeof gtag !== 'undefined') {
         gtag('event', 'performance', {
@@ -96,7 +96,7 @@ async function retryLoading() {
 async function loadGames() {
     try {
         updateLoadingState(LoadingState.LOADING);
-        
+
         // 如果是预渲染，使用简化版本
         if (isPrerendering) {
             await loadPrerenderedContent();
@@ -122,10 +122,10 @@ async function loadGames() {
 async function loadPrerenderedContent() {
     const gamesList = document.createElement('div');
     gamesList.className = 'games-list';
-    
+
     // 只加载前5个游戏的基本信息
     const previewGames = games_infos.gameList.slice(0, 5);
-    
+
     previewGames.forEach(game => {
         const gameElement = document.createElement('div');
         gameElement.className = 'game-preview';
@@ -136,7 +136,7 @@ async function loadPrerenderedContent() {
         `;
         gamesList.appendChild(gameElement);
     });
-    
+
     document.body.appendChild(gamesList);
 }
 
@@ -224,7 +224,7 @@ async function loadRemainingDeskGames(data) {
 async function LoadMobileGames() {
     gameLen = games_infos.gameList.length;
     const len = Math.min(gameLen, lenPerDiv);
-    
+
     await loadMobileGameByStartPos(currentPos, len - 1);
     currentPos += len - 1;
 
@@ -273,7 +273,7 @@ function LoadMoreMobileGames()
 }
 
 
-function loadMobileGameByStartPos(startPos,divLen,hasBigIcon = true){   
+function loadMobileGameByStartPos(startPos,divLen,hasBigIcon = true){
     var data = games_infos;
     mobileGameDisplayEl = document.querySelector(".lStd1276e_IhuA3g3FIs.ADMPJVcFvhX6udYDGs_x");
     var divE = document.createElement("Div");
@@ -291,7 +291,7 @@ function loadMobileGameByStartPos(startPos,divLen,hasBigIcon = true){
         else{
             a.className = "I_N3HLb877sRrr2UZJfZ xCChko93rfK8hvsE5sNR";
         }
-        
+
         var game_icon = gamepath + data.gameList[startPos + i].icon;
         var game_name = data.gameList[startPos + i].gname.replaceAll("_"," ");
         var game_name = game_name.replaceAll("-"," ");
@@ -372,14 +372,14 @@ function closeShowSearchPanel() {
 
 
 function filterSearchContent() {
-    
+
     var searchValue = inputSearchEl.value==""?"##############################":inputSearchEl.value.toLowerCase();
     var searchData = games_infos.gameList.filter((item) => item.gname.toLowerCase().indexOf(searchValue) > -1);
 
     searchContentEl.innerHTML = "";
-    
+
     isDesk?showDeskSearchContent(searchData):showMobileSearchContent(searchData);
-   
+
 
 
 }
@@ -412,7 +412,7 @@ function showMobileSearchContent(filterData){
     }
 
 
-   
+
 }
 
 
@@ -420,13 +420,13 @@ function showMobileSearchContent(filterData){
 
 var last_scroll_top = 0;
 
-window.onload = function () {  
+window.onload = function () {
     window.sessionStorage&&(last_scroll_top =window.sessionStorage.getItem("last_scroll_top"),console.log("get:"  + window.sessionStorage.getItem("last_scroll_top")));
     preInit();
-    
+
     loadCategory();
     loadGames();
-   
+
     initElement();
     initUIHandle();
 }
@@ -443,50 +443,50 @@ var gameDisplayEl;
 
 var searchBtnEl;
 var closeSearchBtnEl;
-var categorypath = "/assets/icons/category/";
-var gamepath  = "/assets/icons/game/";
+var categorypath = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/category/";
+var gamepath  = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/game/";
 var isDesk = true;
 var inputSearchEl;
 
 var last_scroll_top = 0;
 
-var userScroll = false;  
+var userScroll = false;
 
 function preInit(){
 
-    $(function() { 
-    
-        // reset flag on back/forward 
-        // $.history.init(function(hash){ 
-        //     userScroll = false; 
-        // }); 
-    
-        $(document).keydown(function(e) { 
-            if(e.which == 33        // page up 
-               || e.which == 34     // page dn 
+    $(function() {
+
+        // reset flag on back/forward
+        // $.history.init(function(hash){
+        //     userScroll = false;
+        // });
+
+        $(document).keydown(function(e) {
+            if(e.which == 33        // page up
+               || e.which == 34     // page dn
                || e.which == 32     // spacebar
-               || e.which == 38     // up 
-               || e.which == 40     // down 
-               || (e.ctrlKey && e.which == 36)     // ctrl + home 
-               || (e.ctrlKey && e.which == 35)     // ctrl + end 
-              ) { 
-                userScroll = true; 
-            } 
-        }); 
-    
+               || e.which == 38     // up
+               || e.which == 40     // down
+               || (e.ctrlKey && e.which == 36)     // ctrl + home
+               || (e.ctrlKey && e.which == 35)     // ctrl + end
+              ) {
+                userScroll = true;
+            }
+        });
+
         // detect user scroll through mouse
-        // Mozilla/Webkit 
+        // Mozilla/Webkit
         if(window.addEventListener) {
-            document.addEventListener('DOMMouseScroll', mouseEvent, false); 
+            document.addEventListener('DOMMouseScroll', mouseEvent, false);
         }
-    
-        //for IE/OPERA etc 
-        document.onmousewheel = mouseEvent; 
-    
-    
-      
-    }); 
-    
+
+        //for IE/OPERA etc
+        document.onmousewheel = mouseEvent;
+
+
+
+    });
+
     userScroll =false;
     isDesk = document.body.className == "DeskVersion" ? true : false;
 }
@@ -547,11 +547,11 @@ var loadMoreGameFlag = false;
 function initMobileHandle(){
     document.querySelector(".buttonReset.Ms6HEJ826qeso4NBVCoW.dh2x0Msr5tQ9qK1KUc6A").addEventListener('click', function () {
         openShowSearchPanel();
-    }, false); 
+    }, false);
     document.querySelector(".buttonReset.cASKzCoNR2uSR8G9mVE4").addEventListener('click', function () {
         closeShowSearchPanel();
     }, false);
-    
+
     closeSearchBtnEl.addEventListener('click', function () {
         showElement(searchBtnEl);
         hideElement(closeSearchBtnEl);
@@ -571,12 +571,12 @@ function initMobileHandle(){
 
 
     document.addEventListener('wheel', function(event) {
-       
+
         loadMoreGameFlag = true;
         userScroll = true;
     });
 
- 
+
     document.addEventListener('touchstart', function(event) {
 
         loadMoreGameFlag = true;
@@ -600,12 +600,12 @@ function initMobileHandle(){
         var categoryHeight = $(".lStd1276e_IhuA3g3FIs.ADMPJVcFvhX6udYDGs_x").children().last().height();
 
         if(userScroll){
-       
+
             if(document.body.scrollTop + document.body.clientHeight >= document.body.scrollHeight - categoryHeight - 250){
                 if(currentPos + 24 < gameLen || gameLen - currentPos -1 > 0)
                  LoadMoreMobileGames();
-                
-                
+
+
             }
         }
         else{
@@ -616,28 +616,28 @@ function initMobileHandle(){
                 if(currentPos + 24 < gameLen || gameLen - currentPos -1 > 0)
                  if(currentPos <  window.sessionStorage.getItem("last_game_count"))
                      LoadMoreMobileGames();
-                 
+
                  if(currentPos>=window.sessionStorage.getItem("last_game_count")){
                     window.sessionStorage && (document.body.scrollTop = window.sessionStorage.getItem("last_scroll_top"));
                  }
-                
-            }
-          
-        }
-    
-    }
-    
 
-   
+            }
+
+        }
+
+    }
+
+
+
 }
 
-    
-   
 
 
-function mouseEvent(e) { 
-    userScroll = true; 
-} 
+
+
+function mouseEvent(e) {
+    userScroll = true;
+}
 
 
 
