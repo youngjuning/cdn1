@@ -443,8 +443,8 @@ var gameDisplayEl;
 
 var searchBtnEl;
 var closeSearchBtnEl;
-var categorypath = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/category/";
-var gamepath  = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/game/";
+var categorypath = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/assets/icons/category/";
+var gamepath  = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/assets/icons/game/";
 var isDesk = true;
 var inputSearchEl;
 
