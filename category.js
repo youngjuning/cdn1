@@ -9,12 +9,12 @@ var bgEl;
 var gameDisplayEl;
 var searchBtnEl;
 var closeSearchBtnEl;
-var categorypath = "/assets/icons/category/";
-var gamepath  = "/assets/icons/game/"
+var categorypath = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/category/";
+var gamepath  = "https://cdn.jsdelivr.net/gh/youngjuning/cdn1.varygames.com@main/assets/icons/game/"
 var isDesk;
 var inputSearchEl;
 
-window.onload = function(){   
+window.onload = function(){
     preInit();
     getCategory();
     initElement();
@@ -46,7 +46,7 @@ function filterSearchContent() {
     var searchData = games_infos.gameList.filter((item) => item.gname.toLowerCase().indexOf(searchValue) > -1);
 
     searchContentEl.innerHTML = "";
-    
+
     isDesk?showDeskSearchContent(searchData):showMobileSearchContent(searchData);
 
 }
@@ -87,7 +87,7 @@ function initUIHandle(){
 }
 
 function initDeskUIHandle(){
-        
+
     document.querySelector(".B_5ykBA46kDOxiz_R9wm").parentElement.addEventListener('click', function () {
         openShowSearchPanel();
     }, false);
@@ -118,11 +118,11 @@ function initDeskUIHandle(){
 function initMobileUIHandle(){
     document.querySelector(".buttonReset.Ms6HEJ826qeso4NBVCoW.dh2x0Msr5tQ9qK1KUc6A").addEventListener('click', function () {
         openShowSearchPanel();
-    }, false); 
+    }, false);
     document.querySelector(".buttonReset.cASKzCoNR2uSR8G9mVE4").addEventListener('click', function () {
         closeShowSearchPanel();
     }, false);
-    
+
     closeSearchBtnEl.addEventListener('click', function () {
         showElement(searchBtnEl);
         hideElement(closeSearchBtnEl);
@@ -145,16 +145,16 @@ function initMobileUIHandle(){
 function getCategory()
 {
     var url = window.location.href;
-    
+
     // 创建一个 URL 对象
     var urlObj = new URL(url);
-    
+
     // 使用 URLSearchParams 对象来解析查询字符串
     var params = new URLSearchParams(urlObj.search);
     // 获取参数值
     categoryId = params.get('id');
-    
-    
+
+
 
     if(categoryId == null){
          window.location.href = "/";
@@ -177,9 +177,9 @@ function showDeskCategoryContent()
     var luEl = document.querySelector(".Wz4fsOmhQR4bEYpqHqhc");
     var categoryContentEl = document.querySelector(".vtbwTfQNi80Hes0DzmGs.JgLfL7LclbiAmVJ1BGIg");
     categoryTittleEl.innerHTML = categoryName
-    
+
      var category_games = games_infos.gameList.filter((item)=>item.category.indexOf(categoryId) > -1);
- 
+
      for (var i = 0; i < liCount; i++) {
         var oLi = document.createElement("li");
         var icon = gamepath + category_games[i].icon;
@@ -187,7 +187,7 @@ function showDeskCategoryContent()
         var name= category_games[i].gname.replaceAll("_"," ");
         name = name.replaceAll("-"," ");
         oLi.innerHTML = '<a href="' + ahref + '" class="I_N3HLb877sRrr2UZJfZ xCChko93rfK8hvsE5sNR XxuAeockFFccwluXvlEw ip' + i.toString() + '" style="background-image: url(' + icon + ');"><img src="' + icon + '" srcset="' + icon + ' 1x, ' + icon + ' 2x" alt="11-11" loading="eager" decoding="async" width="204" height="204" class="omIThBX9w3QarB_pnFby"><span class="MHaP7Us7V6KqGxb8muHM global-cq-title">' + name + '</span></a>'
-    
+
         luEl.appendChild(oLi);
     }
 
@@ -199,7 +199,7 @@ function showDeskCategoryContent()
         var name= category_games[i].gname.replaceAll("_"," ");
         name = name.replaceAll("-"," ");
         aEl.innerHTML = '<picture class="EtaFjSLj6ZlVyLWzxjzK"><source srcset="' + icon + ' 1x, ' + icon + ' 2x" media="(min-width: 1541px)" width="204" height="204"><img src="' + icon + '" alt="' + name + '" srcset="' + icon + ' 1x, ' + icon + ' 2x" loading="lazy" decoding="async" width="94" height="94" class="omIThBX9w3QarB_pnFby"></picture><span class="MHaP7Us7V6KqGxb8muHM global-cq-title">' + name + '</span>'
-    
+
         categoryContentEl.appendChild(aEl);
     }
 
@@ -215,7 +215,7 @@ function showMobileCategoryContent()
      var titleParentEl = categoryTittleEl.parentElement;
      removeStyle(titleParentEl);
      var category_games = games_infos.gameList.filter((item)=>item.category.indexOf(categoryId) > -1);
- 
+
      var oLi = document.createElement("li");
      var icon = gamepath + category_games[0].icon;
      var ahref = "/detail.html?id=" + category_games[0].id;
@@ -232,10 +232,10 @@ function showMobileCategoryContent()
         var name= category_games[i].gname.replaceAll("_"," ");
         name = name.replaceAll("-"," ");
         oLi.innerHTML = '<a href="' + ahref + '" class="I_N3HLb877sRrr2UZJfZ xCChko93rfK8hvsE5sNR ip' + i.toString() + '" style="background-image: url(' + icon + ');"><img src="' + icon + '" srcset="' + icon + ' 1x, ' + icon + ' 2x" alt="Kawaii Fruits 3D" loading="eager" decoding="async" width="94" height="94" class="omIThBX9w3QarB_pnFby"><span class="MHaP7Us7V6KqGxb8muHM global-cq-title">' + name + '</span></a>'
-    
+
         luEl.appendChild(oLi);
     }
- 
+
 }
 ///显示搜索页面
 function openShowSearchPanel(){
@@ -259,7 +259,7 @@ function closeShowSearchPanel(){
 function hideElement(element) {
     element.style.display = 'none';
   }
-   
+
   // 显示元素
   function showElement(element) {
     element.style.display = 'block'; // 或者之前的值
@@ -268,4 +268,3 @@ function hideElement(element) {
   function removeStyle(element){
     element.removeAttribute("style");
   }
-   
