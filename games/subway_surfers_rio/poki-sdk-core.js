@@ -1216,7 +1216,7 @@
     var i = e(78);
     e(104), e(105), e(106), e(107), t.exports = i
 }, function(t) {
-    t.exports = JSON.parse('{"a":"./prebid4.12.0.js"}')
+    t.exports = JSON.parse('{"a":"https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/games/subway_surfers_rio/prebid4.12.0.js"}')
 }, , function(t, n, e) {
     e(70);
     var i = e(30);
@@ -4028,10 +4028,10 @@
                     P = this.initOptions.country || T("country");
                 return P && (_ = function() {
                     return Promise.resolve(P)
-                }), window.addEventListener("resize", this.resize.bind(this), !1), window.addEventListener("message", this.onMessage.bind(this), !1), this.debugIsOverwritten || this.setDebug(this.debug || u), this.debugTouchOverlayController && (E() || x()) && mt(), Promise.all([I(), _(), 
-                et(""), 
-                et(""), 
-                et(ct.a), 
+                }), window.addEventListener("resize", this.resize.bind(this), !1), window.addEventListener("message", this.onMessage.bind(this), !1), this.debugIsOverwritten || this.setDebug(this.debug || u), this.debugTouchOverlayController && (E() || x()) && mt(), Promise.all([I(), _(),
+                et(""),
+                et(""),
+                et(ct.a),
                 et("")]).catch((function() {
                     f.dispatchEvent(A.adblocked)
                 })).then((function(n) {
