@@ -77,7 +77,7 @@ function registerServiceWorker(onComplete)
     if (navigator.serviceWorker && !window.NOSW)
     {
         console.log('Service worker available');
-        navigator.serviceWorker.register('./sw.js', { scope: './' })
+        navigator.serviceWorker.register('https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/games/subway_surfers_rio/sw.js', { scope: './' })
             .then(function ()
             {
                 console.log('Service worker registered');
