@@ -47,7 +47,7 @@ function initApp()
         window.PokiSDK.setDebug(window.GAME_CONFIG.pokiSdkDebug);
     }
 
-    loadScript('https://cdn.jsdelivr.net/gh/youngjuning/cdn1@nocache=2/games/subway_surfers_rio/js/dependencies.bundle.js');
+    loadScript('https://cdn.jsdelivr.net/gh/youngjuning/cdn1@nocache=4/games/subway_surfers_rio/js/dependencies.bundle.js');
     loadScript(window.MAIN ? window.MAIN : 'https://cdn.jsdelivr.net/gh/youngjuning/cdn1@main/games/subway_surfers_rio/js/index.js');
 }
 
